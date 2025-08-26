@@ -1,0 +1,284 @@
+
+    .hero-one {
+      background: url('') center center/cover no-repeat;
+      height: 600px;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-one h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    .promo {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+    }
+
+
+    .hero-section {
+      background: url('images/images\ 2\ bg.jpeg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-text {
+      background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+    }
+.lead{
+    font-weight: 700;
+}
+
+body {
+      background-color: #f8f9fa;
+    }
+    .product-card img {
+      height: 300px;
+      object-fit: cover;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .text-center{
+      font-weight: 700;
+    }
+
+    /* Promo Section styles */
+.promo {
+  background: #e4daa3;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  margin: 60px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0.8;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sale-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(26, 18, 18, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1f2937;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sale-badge i {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}
+
+.promo-title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+  color: #1f2937;
+}
+
+.discount-highlight {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.discount-text {
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.discount-number {
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+  margin: 0 10px;
+  position: relative;
+}
+
+.discount-number::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: -1;
+}
+
+.promo-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  margin-bottom: 35px;
+  font-weight: 300;
+  color: #1f2937;
+}
+
+.btn-promo {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  border: none;
+  color: white !important;
+  padding: 12px 25px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-promo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-promo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+  color: white;
+}
+
+.btn-promo:hover::before {
+  left: 100%;
+}
+
+.promo-timer {
+  margin-top: 25px;
+  color: #1f2937;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.promo-timer i {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+body {
+            background-color: #f8f9fa;
+        }
+        /* Category Card Styling */
+        .category-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .category-card img {
+            height: 150px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .category-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+   .dash-board{
+    background-color: #eed261;
+   }
+
+    /* Search bar rounded look */
+        .search-input {
+            border-radius: 50px 0 0 50px;
+            border-right: none;
+        }
+        .search-btn {
+            border-radius: 0 50px 50px 0;
+        }
+        /* Adjust for small devices */
+        @media (max-width: 768px) {
+            .search-bar {
+                margin-top: 10px;
+            }
+        }

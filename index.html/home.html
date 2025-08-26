@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Luxe - Fashion Store</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Google Fonts for a more professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Custom Styles */
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .navbar-brand,
+      .hero-text h1,
+      .promo h2 {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Navbar */
+      .navbar {
+        transition: background-color 0.3s ease;
+      }
+      .search-bar .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .search-bar .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: url("https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop")
+          no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 120px 0;
+      }
+      .hero-text {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        padding: 2.5rem;
+        border-radius: 15px;
+      }
+
+      /* Card Styles */
+      .card {
+        border: none;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .card-img-top {
+        height: 350px;
+        object-fit: cover;
+      }
+      .category-card {
+        cursor: pointer;
+      }
+
+      /* Button Styles */
+      .btn-promo {
+        background-color: #ffc107;
+        color: #212529;
+        border: 2px solid #ffc107;
+        font-weight: bold;
+        padding: 10px 25px;
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .btn-promo:hover {
+        background-color: #212529;
+        color: #ffc107;
+        border-color: #212529;
+      }
+
+      /* Promo Banner */
+      .promo-banner {
+        background-color: #ffc107;
+        color: #212529;
+      }
+      .promo-banner .btn-dark:hover {
+        background-color: #fff;
+        color: #212529;
+      }
+
+      /* Footer */
+      footer a.text-light:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-warning py-3 shadow-sm sticky-top"
+    >
+      <div class="container">
+        <!-- Brand Logo -->
+        <a class="navbar-brand fw-bold text-dark" href="#">LUXE</a>
+
+        <!-- Toggler for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Search Bar -->
+          <form
+            class="d-flex mx-auto my-2 my-lg-0 search-bar"
+            style="max-width: 500px; width: 100%"
+          >
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search for products..."
+              aria-label="Search"
+            />
+            <button class="btn btn-dark" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+
+          <!-- Nav Links -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Brands</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Thrift</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-text">
+        <h1 class="display-4 fw-bold">Welcome to Luxe</h1>
+        <p class="lead">Trendy • Luxurious • Comfortable</p>
+        <a href="#" class="btn btn-light btn-lg mt-3">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <!-- Add this CSS to your <style> block in the <head> -->
+    <style>
+      .category-card-v3 {
+        border-radius: 15px;
+        background-size: cover;
+        background-position: center;
+        min-height: 250px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        display: flex;
+        align-items: flex-end;
+        transition: transform 0.3s ease;
+      }
+      .category-card-v3:hover {
+        transform: scale(1.05);
+      }
+      .category-card-v3::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0)
+        ); /* Gradient overlay */
+      }
+      .category-card-v3 .card-body {
+        position: relative; /* To appear above the overlay */
+        z-index: 2;
+      }
+    </style>
+
+    <!-- Your Improved HTML Section -->
+    <section class="py-5">
+      <div class="container">
+        <h3 class="mb-5 fw-bold text-center">Shop by Category</h3>
+        <div class="row g-4">
+          <!-- Category: Men -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="card category-card-v3 h-100"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500');
+              "
+            >
+              <div class="card-body p-4">
+                <h4 class="card-title fw-bold">Mens Wear</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Women -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="card category-card-v3 h-100"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1572804013427-4d7ca7268217?w=500');
+              "
+            >
+              <div class="card-body p-4">
+                <h4 class="card-title fw-bold">Womens Wear</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Accessories -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="card category-card-v3 h-100"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1593032583812-a73b3a332e49?w=500');
+              "
+            >
+              <div class="card-body p-4">
+                <h4 class="card-title fw-bold">Accessories</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category: Thrifting -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="card category-card-v3 h-100"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1555529771-835f59fc5efe?w=500');
+              "
+            >
+              <div class="card-body p-4">
+                <h4 class="card-title fw-bold">Thrifting</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <!-- Add this CSS to your <style> block in the <head> -->
+    <style>
+      .product-card {
+        border: 1px solid #eee;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+      }
+      .product-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+      }
+      .product-card .card-img-container {
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      .product-card .card-img-top {
+        transition: transform 0.4s ease;
+      }
+      .product-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
+      .product-card .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: #ffc107;
+        color: #212529;
+        font-weight: bold;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        z-index: 2;
+      }
+      .product-card .card-actions {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+      .product-card:hover .card-actions {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .product-card .card-actions .btn-action {
+        background-color: white;
+        color: #212529;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+      }
+      .product-card .card-actions .btn-action:hover {
+        background-color: #ffc107;
+        color: #212529;
+      }
+    </style>
+
+    <!-- Your Improved HTML Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Featured Products</h2>
+        <div class="row g-4">
+          <!-- Product Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100">
+              <div class="card-img-container">
+                <span class="product-badge">Sale</span>
+                <img
+                  src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=500"
+                  class="card-img-top"
+                  alt="Stylish Shirt"
+                />
+                <div class="card-actions">
+                  <a href="#" class="btn-action" title="Add to Wishlist"
+                    ><i class="bi bi-heart"></i
+                  ></a>
+                  <a href="#" class="btn-action" title="Quick View"
+                    ><i class="bi bi-search"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Stylish Shirt</h5>
+                <p class="card-text fw-bold text-muted">
+                  $39.99 <s class="ms-1 text-secondary fw-normal">$50.00</s>
+                </p>
+                <a href="#" class="btn btn-promo mt-auto">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100">
+              <div class="card-img-container">
+                <span
+                  class="product-badge"
+                  style="background-color: #212529; color: white"
+                  >New</span
+                >
+                <img
+                  src="https://images.unsplash.com/photo-1593032583812-a73b3a332e49?w=500"
+                  class="card-img-top"
+                  alt="Winter Jacket"
+                />
+                <div class="card-actions">
+                  <a href="#" class="btn-action" title="Add to Wishlist"
+                    ><i class="bi bi-heart"></i
+                  ></a>
+                  <a href="#" class="btn-action" title="Quick View"
+                    ><i class="bi bi-search"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Winter Jacket</h5>
+                <p class="card-text fw-bold text-muted">$79.99</p>
+                <a href="#" class="btn btn-promo mt-auto">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100">
+              <div class="card-img-container">
+                <img
+                  src="https://images.unsplash.com/photo-1602293589914-9e296ba3d52a?w=500"
+                  class="card-img-top"
+                  alt="Denim Jeans"
+                />
+                <div class="card-actions">
+                  <a href="#" class="btn-action" title="Add to Wishlist"
+                    ><i class="bi bi-heart"></i
+                  ></a>
+                  <a href="#" class="btn-action" title="Quick View"
+                    ><i class="bi bi-search"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Denim Jeans</h5>
+                <p class="card-text fw-bold text-muted">$49.99</p>
+                <a href="#" class="btn btn-promo mt-auto">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner text-center py-5">
+      <div class="container">
+        <h2 class="fw-bold">End of Season Sale</h2>
+        <p class="lead">
+          Up to <span class="fw-bold">50% Off!</span> Limited time only. Don’t
+          miss out.
+        </p>
+        <a href="#" class="btn btn-dark btn-lg mt-3">Explore Sale</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4">
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <!-- Brand Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Luxe</h5>
+            <p>
+              Elegant designs, premium fabrics, and timeless style for all
+              seasons.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Shop</h5>
+            <p><a href="#" class="text-light text-decoration-none">Women</a></p>
+            <p><a href="#" class="text-light text-decoration-none">Men</a></p>
+            <p>
+              <a href="#" class="text-light text-decoration-none"
+                >New Arrivals</a
+              >
+            </p>
+            <p><a href="#" class="text-light text-decoration-none">Sale</a></p>
+          </div>
+
+          <!-- Customer Service -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Help</h5>
+            <p>
+              <a href="#" class="text-light text-decoration-none">Contact Us</a>
+            </p>
+            <p>
+              <a href="#" class="text-light text-decoration-none">Shipping</a>
+            </p>
+            <p>
+              <a href="#" class="text-light text-decoration-none">Returns</a>
+            </p>
+            <p><a href="#" class="text-light text-decoration-none">FAQs</a></p>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Contact</h5>
+            <p>
+              <i class="bi bi-house-door-fill me-2"></i> 123 Fashion Street, NY
+            </p>
+            <p><i class="bi bi-envelope-fill me-2"></i> info@luxe.com</p>
+            <p><i class="bi bi-phone-fill me-2"></i> +1 234 567 890</p>
+          </div>
+        </div>
+
+        <hr class="mb-4" />
+
+        <!-- Social & Copyright -->
+        <div class="row align-items-center">
+          <div class="col-md-7 col-lg-8 text-center text-md-start">
+            <p class="mb-3 mb-md-0">
+              © 2025 Luxe Clothing | All Rights Reserved
+            </p>
+          </div>
+          <div class="col-md-5 col-lg-4 text-center text-md-end">
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-facebook fs-4"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-instagram fs-4"></i
+            ></a>
+            <a href="#" class="text-light me-3"
+              ><i class="bi bi-twitter fs-4"></i
+            ></a>
+            <a href="#" class="text-light"
+              ><i class="bi bi-pinterest fs-4"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

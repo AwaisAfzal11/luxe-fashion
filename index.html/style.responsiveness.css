@@ -1,0 +1,38 @@
+@media (max-width: 768px) {
+    .promo {
+        padding: 60px 0;
+        margin: 40px 0;
+    }
+    
+    .promo-title {
+        font-size: 2.5rem;
+    }
+    
+    .discount-number {
+        font-size: 3rem;
+    }
+    
+    .discount-text {
+        font-size: 1.2rem;
+    }
+    
+    .btn-promo {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-title {
+        font-size: 2rem;
+    }
+    
+    .discount-number {
+        font-size: 2.5rem;
+    }
+    
+    .discount-highlight {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
