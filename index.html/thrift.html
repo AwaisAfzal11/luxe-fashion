@@ -1,209 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luxe Thrift Shop</title>
-  <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="style.responsiveness.css">
-    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxe Thrift | Curated Second-Hand Style</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts for a more stylish look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning py-3 shadow-sm">
-    <div class="container">
+    <!-- Custom Styles -->
+    <style>
+      :root {
+        --luxe-yellow: #ffc107;
+        --luxe-light-yellow: #fff8e1;
+        --luxe-dark: #212529; /* This is the dark blue/grey shade */
+        --font-serif: 'Playfair Display', serif;
+        --font-sans: 'Roboto', sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: #fdfdfd;
+      }
+
+      h1, h2, h3, h4, h5, .navbar-brand, .card-title {
+        font-family: var(--font-serif);
+      }
+
+      /* --- Navbar --- */
+      .navbar {
+        transition: background-color 0.3s ease;
+      }
+      .search-bar .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .search-bar .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      /* --- Hero Section --- */
+      .thrift-hero {
+        background: url('https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600') center center/cover no-repeat;
+        padding: 8rem 0;
+        position: relative;
+        color: white;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(33, 37, 41, 0.85) 0%, rgba(33, 37, 41, 0.1) 100%);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .btn-promo {
+        background-color: var(--luxe-yellow);
+        color: var(--luxe-dark);
+        border: 2px solid var(--luxe-yellow);
+        padding: 0.75rem 2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .btn-promo:hover {
+        background-color: transparent;
+        color: var(--luxe-yellow);
+        transform: translateY(-3px);
+      }
+
+      /* --- General Section Styling --- */
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--luxe-yellow);
+        margin: 0.5rem auto 0;
+      }
+
+      /* --- Our Promise Section --- */
+      .promise-card {
+        background-color: white;
+        border: none;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+      }
+      .promise-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      }
+      .promise-icon {
+        font-size: 3rem;
+        color: var(--luxe-dark);
+      }
+
+      /* --- Shop By Style Section --- */
+      .style-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        height: 250px;
+        width: 250px;
+        margin: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.4s ease;
+      }
+       .style-card:hover {
+        transform: scale(1.08);
+      }
+      .style-card img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .style-card-overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      .style-card:hover .style-card-overlay {
+        background-color: rgba(255, 193, 7, 0.7);
+        color: var(--luxe-dark);
+      }
+
+      /* --- Product Card Styling --- */
+      .product-card {
+        border: 1px solid #eee;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+        border-bottom: 3px solid transparent;
+      }
+      .product-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        border-bottom-color: var(--luxe-yellow);
+      }
+      .product-card .card-img-top {
+        transition: transform 0.4s ease;
+      }
+      .product-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
+      .product-card .btn-dark {
+        transition: all 0.3s ease;
+      }
+      .product-card:hover .btn-dark {
+        background-color: var(--luxe-yellow);
+        border-color: var(--luxe-yellow);
+        color: var(--luxe-dark);
+      }
+
+      /* --- Spotlight Section --- */
+      .spotlight-section {
+        background-color: var(--luxe-dark);
+        color: white;
+      }
+      .spotlight-section img {
+        border-radius: 15px;
+        object-fit: cover;
+        height: 100%;
+      }
+
+      /* --- Footer --- */
+      .footer a:hover {
+        color: var(--luxe-yellow) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-warning py-3 shadow-sm sticky-top"
+    >
+      <div class="container">
         <!-- Brand Logo -->
-        <a class="navbar-brand fw-bold text-dark" href="#">LUXE</a>
+        <a class="navbar-brand fw-bold text-dark" href="home.html">LUXE</a>
 
         <!-- Toggler for mobile -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Navbar Content -->
         <div class="collapse navbar-collapse" id="navbarContent">
-            <!-- Search Bar -->
-            <form class="d-flex mx-auto search-bar" style="max-width: 500px; width: 100%;">
-                <input class="form-control search-input" type="search" placeholder="Search for products..." aria-label="Search">
-                <button class="btn btn-dark search-btn" type="submit"><i class="bi bi-search"></i></button>
-            </form>
+          <!-- Search Bar -->
+          <form
+            class="d-flex mx-auto my-2 my-lg-0 search-bar"
+            style="max-width: 500px; width: 100%"
+          >
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search for products..."
+              aria-label="Search"
+            />
+            <button class="btn btn-dark" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
 
-            <!-- Nav Links -->
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="home.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="brands.html">Brands</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="thrift.html">Thrift</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="contactus.html">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="login.html">log in</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="signup.html">Sign Up</a></li>
-                
-            </ul>
+          <!-- Nav Links -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Brands</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-bold" href="thrift.html">Thrift</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark fw-semibold" href="#">Sign Up</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
+    <!-- End Navbar -->
 
-
-<br><br>
-<!-- Hero Section -->
-<section class="hero-two text-center">
-  <div>
-    <h1 class="display-4 fw-bold">Luxe Thrift Finds</h1>
-    <p class="lead">Pre-loved treasures at unbeatable prices</p>
-    <a href="" class="btn btn-promo btn-warning btn-lg">Shop Now</a>
-  </div>
-</section>
-
-<!-- Products -->
-<section id="products" class="py-5">
-  <div class="container">
-    <div class="row g-4">
-      
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 1.jpg" class="card-img-top" alt="Dress">
-          <div class="card-body">
-            <h5 class="card-title">Floral Summer Dress</h5>
-            <p class="card-text text-muted"><del>$45</del> <span class="text-success">$20</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
+    <!-- Hero Section -->
+    <section class="thrift-hero">
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <div class="hero-content">
+              <h1 class="display-3 fw-bold" style="font-family: var(--font-serif);">Sustainable Luxury, Reimagined</h1>
+              <p class="lead fs-4 my-4">Discover unique, pre-loved treasures that tell a story. Quality and style, guaranteed.</p>
+              <a href="#thrift-shop" class="btn btn-promo btn-lg">Explore The Collection</a>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+    <!-- End Hero Section -->
 
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 2.webp" class="card-img-top" alt="Jacket">
-          <div class="card-body">
-            <h5 class="card-title">Denim Jacket</h5>
-            <p class="card-text text-muted"><del>$60</del> <span class="text-success">$30</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
+    <!-- Our Promise Section -->
+    <section class="py-5" style="background-color: var(--luxe-light-yellow);">
+        <div class="container">
+            <h2 class="section-title">Our Thrifting Promise</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="promise-card">
+                        <div class="promise-icon mb-3"><i class="bi bi-gem"></i></div>
+                        <h5>Carefully Curated</h5>
+                        <p class="text-muted">Every item is hand-picked by our stylists for its quality, style, and condition.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promise-card">
+                        <div class="promise-icon mb-3"><i class="bi bi-shield-check"></i></div>
+                        <h5>Authenticated & Cleaned</h5>
+                        <p class="text-muted">We ensure authenticity and professionally clean each piece so it's ready to wear.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promise-card">
+                        <div class="promise-icon mb-3"><i class="bi bi-lightning-charge"></i></div>
+                        <h5>One-of-a-Kind Finds</h5>
+                        <p class="text-muted">Find unique treasures that set you apart from the crowd.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Our Promise Section -->
+
+    <!-- Shop By Style Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Shop by Style</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-6 col-lg-3">
+                    <a href="#" class="text-decoration-none">
+                        <div class="style-card">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=300" alt="Vintage Style">
+                            <div class="style-card-overlay">Vintage Classics</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="#" class="text-decoration-none">
+                        <div class="style-card">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300" alt="Streetwear Style">
+                            <div class="style-card-overlay">Streetwear</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="#" class="text-decoration-none">
+                        <div class="style-card">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300" alt="Bohemian Style">
+                            <div class="style-card-overlay">Bohemian</div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="col-md-6 col-lg-3">
+                    <a href="#" class="text-decoration-none">
+                        <div class="style-card">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=300" alt="Minimalist Style">
+                            <div class="style-card-overlay">Minimalist</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop By Style -->
+
+    <!-- Thrift Products Section -->
+    <section id="thrift-shop" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="row g-4">
+          <!-- Product Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100 overflow-hidden">
+              <div class="overflow-hidden">
+                <img src="images/images thrift 1.jpg" class="card-img-top" alt="Floral Dress"/>
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Vintage Floral Dress</h5>
+                <p class="card-text fw-bold text-muted"><s class="me-2 text-secondary fw-normal">$45.00</s>$20.00</p>
+                <a href="#" class="btn btn-dark w-100 mt-auto"><i class="bi bi-cart-plus me-2"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+           <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100 overflow-hidden">
+              <div class="overflow-hidden"><img src="images/images thrift 2.webp" class="card-img-top" alt="Denim Jacket"/></div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Classic Denim Jacket</h5>
+                <p class="card-text fw-bold text-muted"><s class="me-2 text-secondary fw-normal">$60.00</s>$30.00</p>
+                <a href="#" class="btn btn-dark w-100 mt-auto"><i class="bi bi-cart-plus me-2"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card product-card h-100 overflow-hidden">
+              <div class="overflow-hidden"><img src="images/images thrift 3.webp" class="card-img-top" alt="White Shirt"/></div>
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Linen White Shirt</h5>
+                <p class="card-text fw-bold text-muted"><s class="me-2 text-secondary fw-normal">$35.00</s>$15.00</p>
+                <a href="#" class="btn btn-dark w-100 mt-auto"><i class="bi bi-cart-plus me-2"></i>Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-outline-dark btn-lg">View All Thrift Finds</a>
+        </div>
+      </div>
+    </section>
+    <!-- End Thrift Products Section -->
+
+    <!-- Spotlight Section -->
+    <section class="py-5 spotlight-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <img src="./images/bag1.webp" class="img-fluid shadow-lg" alt="Featured Handbag"/>
+          </div>
+          <div class="col-lg-6">
+            <h5 class="text-warning">Gem of the Week</h5>
+            <h2 class="display-5 fw-bold mb-3">The Vintage Leather Tote</h2>
+            <p class="lead">A timeless and rare find, this genuine leather tote from the 80s is in pristine condition. A perfect statement piece for any fashion enthusiast.</p>
+            <p class="display-6 fw-bold mb-4" style="color: var(--luxe-yellow);">$85.00</p>
+            <a href="#" class="btn btn-warning btn-lg fw-bold">View Details</a>
           </div>
         </div>
       </div>
+    </section>
+    <!-- End Spotlight Section -->
 
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 3.webp" class="card-img-top" alt="Shirt">
-          <div class="card-body">
-            <h5 class="card-title">Classic White Shirt</h5>
-            <p class="card-text text-muted"><del>$35</del> <span class="text-success">$15</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4 footer">
+      <div class="container text-md-left">
+        <div class="row text-md-left">
+          <!-- Brand Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Luxe</h5>
+            <p>
+              Elegant designs, premium fabrics, and timeless style for all seasons. Discover new, branded, and thrifted treasures.
+            </p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Shop</h5>
+            <p><a href="#" class="text-light text-decoration-none">Women</a></p>
+            <p><a href="#" class="text-light text-decoration-none">Men</a></p>
+            <p><a href="#" class="text-light text-decoration-none">New Arrivals</a></p>
+            <p><a href="thrift.html" class="text-light text-decoration-none">Thrift</a></p>
+          </div>
+    
+          <!-- Customer Service -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Help</h5>
+            <p><a href="#" class="text-light text-decoration-none">Contact Us</a></p>
+            <p><a href="#" class="text-light text-decoration-none">Shipping</a></p>
+            <p><a href="#" class="text-light text-decoration-none">Returns</a></p>
+            <p><a href="#" class="text-light text-decoration-none">FAQs</a></p>
+          </div>
+    
+          <!-- Contact -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 fw-bold text-warning">Contact</h5>
+            <p><i class="bi bi-house-door-fill me-2"></i> 123 Fashion Street, NY</p>
+            <p><i class="bi bi-envelope-fill me-2"></i> info@luxe.com</p>
+            <p><i class="bi bi-phone-fill me-2"></i> +1 234 567 890</p>
+          </div>
+        </div>
+    
+        <hr class="mb-4">
+    
+        <!-- Social & Copyright -->
+        <div class="row align-items-center">
+          <div class="col-md-7 col-lg-8">
+            <p class="mb-0">© 2025 Luxe Clothing | All Rights Reserved</p>
+          </div>
+          <div class="col-md-5 col-lg-4 text-md-end">
+            <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-light"><i class="bi bi-pinterest"></i></a>
           </div>
         </div>
       </div>
+    </footer>
+    <!-- End Footer -->
 
-    </div>
-  </div>
-</section>
-
-
-
-<section id="products" class="py-5">
-  <div class="container">
-    <div class="row g-4">
-      
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 4.webp" class="card-img-top" alt="Dress">
-          <div class="card-body">
-            <h5 class="card-title">Floral Summer Dress</h5>
-            <p class="card-text text-muted"><del>$45</del> <span class="text-success">$20</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 5.webp" class="card-img-top" alt="Jacket">
-          <div class="card-body">
-            <h5 class="card-title">Denim Jacket</h5>
-            <p class="card-text text-muted"><del>$60</del> <span class="text-success">$30</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product Card -->
-      <div class="col-md-4">
-        <div class="card product-card shadow-sm">
-          <img src="images/images thrift 6.webp" class="card-img-top" alt="Shirt">
-          <div class="card-body">
-            <h5 class="card-title">Classic White Shirt</h5>
-            <p class="card-text text-muted"><del>$35</del> <span class="text-success">$15</span></p>
-            <a href="#" class="btn btn-dark w-100"><i class="bi bi-cart"></i> Add to Cart</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- Footer -->
-
-<footer class="bg-dark text-light pt-5 pb-4">
-  <div class="container text-md-left">
-    <div class="row text-md-left">
-      
-      <!-- Brand Info -->
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Luxe</h5>
-        <p>
-          Luxe brings you the finest clothing for all seasons.  
-          Elegant designs, premium fabrics, and timeless style.
-        </p>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Shop</h5>
-        <p><a href="#" class="text-light text-decoration-none">Women</a></p>
-        <p><a href="#" class="text-light text-decoration-none">Men</a></p>
-        <p><a href="#" class="text-light text-decoration-none">New Arrivals</a></p>
-        <p><a href="#" class="text-light text-decoration-none">Sale</a></p>
-      </div>
-
-      <!-- Customer Service -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Help</h5>
-        <p><a href="#" class="text-light text-decoration-none">Contact Us</a></p>
-        <p><a href="#" class="text-light text-decoration-none">Shipping</a></p>
-        <p><a href="#" class="text-light text-decoration-none">Returns</a></p>
-        <p><a href="#" class="text-light text-decoration-none">FAQs</a></p>
-      </div>
-
-      <!-- Contact -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
-        <p><i class="bi bi-house-door-fill"></i> 123 Fashion Street, NY</p>
-        <p><i class="bi bi-envelope-fill"></i> info@luxe.com</p>
-        <p><i class="bi bi-phone-fill"></i> +1 234 567 890</p>
-      </div>
-    </div>
-
-    <hr class="mb-4">
-
-    <!-- Social & Copyright -->
-    <div class="row align-items-center">
-      <div class="col-md-7 col-lg-8">
-        <p class="mb-0">© 2025 Luxe Clothing | All Rights Reserved</p>
-      </div>
-      <div class="col-md-5 col-lg-4 text-md-end">
-        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="text-light"><i class="bi bi-pinterest"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
